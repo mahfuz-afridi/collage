@@ -454,6 +454,13 @@ input {
     border-bottom: 1px solid #e7eff8;
 }
 
+.quick-section a:hover {
+     background: #0878ed;
+    border-top: 1px solid #0878ed;
+    border-bottom: 1px solid #0878ed;
+    color: #fff;
+}
+
 .quick-links {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
