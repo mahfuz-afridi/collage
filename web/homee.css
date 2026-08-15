@@ -1104,7 +1104,7 @@ input {
 
     overflow: hidden;
 
-    border-radius: 28px;
+    border-radius: 0px;
 
     background: #ffffff;
 
@@ -1130,7 +1130,7 @@ input {
 /* Back */
 
 .history-card-back {
-    top: 35px;
+    top: 100x;
 
     transform:
         translate(18px, 25px)
@@ -1145,7 +1145,7 @@ input {
 /* Middle */
 
 .history-card-middle {
-    top: 28px;
+    top: 50px;
 
     transform:
         translate(9px, 13px)
@@ -1217,7 +1217,7 @@ input {
 .history-main-image img.changing {
     opacity: 0;
 
-    transform: scale(1.06);
+    transform: scale(1.00);
 }
 
 
