@@ -1,25 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>bafsccollege</title>
+    <title>BAF Shaheen College Chattogram</title>
+    <meta name="description" content="Bangladesh Air Force Shaheen College Chattogram — academic excellence and discipline at Bangladesh Air Force Base Zahurul Haque, Patenga.">
+    <meta name="theme-color" content="#f6f8fb" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0c1424" media="(prefers-color-scheme: dark)">
 
-    <!-- Google Font -->
+    <!-- Apply the saved / system theme before first paint (prevents a flash) -->
+    <script>
+        (function () {
+            var theme = null;
+            try { theme = localStorage.getItem("baf-theme"); } catch (e) {}
+            if (theme !== "light" && theme !== "dark") {
+                theme = window.matchMedia &&
+                        window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark" : "light";
+            }
+            document.documentElement.setAttribute("data-theme", theme);
+        })();
+    </script>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="homee.css">
+    <!-- Font Awesome (icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="homee.css">
+
+    <script src="main.js" defer></script>
 </head>
 
 <body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
 
 <!-- ================= HEADER ================= -->
 
@@ -27,10 +47,9 @@
 
     <div class="container navbar">
 
-        <a href="#" class="logo">
+        <a href="#" class="logo" aria-label="BAF Shaheen College Chattogram — home">
             <div class="logo-icon">
-                <!-- <i class="fa-solid fa-building-columns"></i> -->
-                <img src="login\Screenshot_2026-08-14_194615-removebg-preview.png" alt="#">
+                <img src="logo.png" alt="" width="64" height="64">
             </div>
 
             <div class="logo-text">
@@ -39,46 +58,54 @@
             </div>
         </a>
 
-        <nav class="nav-menu">
-            <a href="#" class="active">Home</a>
+        <nav class="nav-menu" id="primary-nav" aria-label="Primary">
+            <a href="#" class="active" aria-current="page">Home</a>
             <a href="#">About Us</a>
             <a href="#">Academics</a>
             <a href="#">Campus Life</a>
-            <a href="https://www.bafsc.edu.bd/news-and-events">News</a>
+            <a href="#">News</a>
             <a href="#">Contact</a>
             <a href="login/logn.html" class="login-link">Log in</a>
         </nav>
 
         <div class="nav-actions">
-            <!-- <a href="#" class="apply-btn">Apply Now</a> -->
+            <button type="button" class="theme-toggle" id="themeToggle"
+                    aria-label="Switch to dark theme">
+                <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+                </svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="4"/>
+                    <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+                </svg>
+            </button>
 
-            <button class="search-btn">
-                <i class="fa-solid fa-magnifying-glass"></i>
+            <button type="button" class="mobile-menu" aria-label="Open menu"
+                    aria-expanded="false" aria-controls="primary-nav">
+                <span class="menu-bars" aria-hidden="true"></span>
             </button>
         </div>
-
-        <button class="mobile-menu">
-            <i class="fa-solid fa-bars"></i>
-        </button>
 
     </div>
 
 </header>
 
 
+<main id="main">
+
 <!-- ================= HERO ================= -->
 
-<section class="hero">
+<section class="hero" aria-labelledby="hero-title">
 
     <div class="container hero-content">
 
         <div class="hero-text">
 
             <span class="small-title">
-                WELCOME TO COLLEGE
+                Welcome to College
             </span>
 
-            <h1>
+            <h1 id="hero-title">
                 Empowering Minds.
                 <br>
                 <span>Building Futures.</span>
@@ -93,10 +120,10 @@
             <div class="hero-buttons">
                 <a href="#" class="primary-btn">
                     Explore Programs
-                    <i class="fa-solid fa-arrow-right"></i>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                 </a>
 
-                <a href="https://www.bafsc.edu.bd/administration/message-of-principal" class="secondary-btn">
+                <a href="#" class="secondary-btn">
                     Learn More
                 </a>
             </div>
@@ -105,12 +132,9 @@
 
 
         <div class="hero-image">
-
-            <div class="clg"></div>
-
             <img src="clg.png"
-                 alt="College Campus">
-
+                 alt="Campus of BAF Shaheen College Chattogram"
+                 fetchpriority="high">
         </div>
 
     </div>
@@ -120,77 +144,58 @@
 
 <!-- ================= STATISTICS ================= -->
 
-<section class="stats-section">
+<section class="stats-section" aria-label="College at a glance">
 
     <div class="container stats">
 
         <div class="stat-item">
-
             <div class="stat-icon">
-                <i class="fa-solid fa-graduation-cap"></i>
+                <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
             </div>
-
             <div>
                 <strong>25+</strong>
                 <span>Years of Excellence</span>
             </div>
-
         </div>
 
-
         <div class="stat-item">
-
             <div class="stat-icon">
-                <i class="fa-solid fa-users"></i>
+                <i class="fa-solid fa-users" aria-hidden="true"></i>
             </div>
-
             <div>
                 <strong>5000+</strong>
                 <span>Students</span>
             </div>
-
         </div>
 
-
         <div class="stat-item">
-
             <div class="stat-icon">
-                <i class="fa-solid fa-book-open"></i>
+                <i class="fa-solid fa-book-open" aria-hidden="true"></i>
             </div>
-
             <div>
                 <strong>200+</strong>
                 <span>Expert Faculty</span>
             </div>
-
         </div>
 
-
         <div class="stat-item">
-
             <div class="stat-icon">
-                <i class="fa-solid fa-building-columns"></i>
+                <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
             </div>
-
             <div>
                 <strong>30+</strong>
                 <span>Programs Offered</span>
             </div>
-
         </div>
 
-
         <div class="stat-item">
-
             <div class="stat-icon">
-                <i class="fa-solid fa-globe"></i>
+                <i class="fa-solid fa-globe" aria-hidden="true"></i>
             </div>
-
             <div>
                 <strong>15+</strong>
                 <span>Global Partnerships</span>
             </div>
-
         </div>
 
     </div>
@@ -200,98 +205,70 @@
 
 <!-- ================= WHY CHOOSE US ================= -->
 
-<section class="features-section">
+<section class="features-section" aria-labelledby="features-title">
 
     <div class="container">
 
         <div class="section-heading">
-
-            <h2>Why Choose Us</h2>
-
+            <h2 id="features-title">Why Choose Us</h2>
             <div class="heading-line"></div>
-
         </div>
-
 
         <div class="features-grid">
 
             <div class="feature-card">
-
                 <div class="feature-icon">
-                    <i class="fa-solid fa-graduation-cap"></i>
+                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
                 </div>
-
                 <h3>Quality Education</h3>
-
                 <p>
                     Industry-relevant curriculum
                     for real-world success.
                 </p>
-
             </div>
 
-
             <div class="feature-card">
-
                 <div class="feature-icon">
-                    <i class="fa-solid fa-building-columns"></i>
+                    <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
                 </div>
-
                 <h3>Modern Campus</h3>
-
                 <p>
                     State-of-the-art facilities
                     and smart classrooms.
                 </p>
-
             </div>
 
-
             <div class="feature-card">
-
                 <div class="feature-icon">
-                    <i class="fa-solid fa-users"></i>
+                    <i class="fa-solid fa-users" aria-hidden="true"></i>
                 </div>
-
                 <h3>Career Support</h3>
-
                 <p>
                     Guidance and placement
                     support for a bright future.
                 </p>
-
             </div>
 
-
             <div class="feature-card">
-
                 <div class="feature-icon">
-                    <i class="fa-solid fa-globe"></i>
+                    <i class="fa-solid fa-globe" aria-hidden="true"></i>
                 </div>
-
                 <h3>Global Exposure</h3>
-
                 <p>
                     Opportunities to learn
                     and grow globally.
                 </p>
-
             </div>
 
-
             <div class="feature-card">
-
                 <div class="feature-icon">
-                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-regular fa-heart" aria-hidden="true"></i>
                 </div>
-
                 <h3>Holistic Growth</h3>
-
                 <p>
                     Focus on academics, skills
                     and overall development.
                 </p>
-
             </div>
 
         </div>
@@ -301,11 +278,9 @@
 </section>
 
 
-<!-- our history -->
-
 <!-- ================= HISTORY SECTION ================= -->
 
-<section class="history-section">
+<section class="history-section" aria-labelledby="history-title">
 
     <div class="container history-wrapper">
 
@@ -313,10 +288,10 @@
         <div class="history-content">
 
             <span class="history-subtitle">
-                ABOUT OUR COLLEGE
+                About Our College
             </span>
 
-            <h2>
+            <h2 id="history-title">
                 OUR <span>HISTORY</span>
             </h2>
 
@@ -349,59 +324,66 @@
 
             <a href="#" class="history-btn">
                 Read More
-                <i class="fa-solid fa-arrow-right"></i>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
 
         </div>
 
 
         <!-- RIGHT : IMAGE SLIDER -->
-        <div class="history-visual">
+        <div class="history-media" role="region" aria-roledescription="carousel"
+             aria-label="College photographs">
 
-            <div class="history-image-bg"></div>
+            <div class="history-visual">
 
-            <!-- Back image -->
-            <div class="history-card history-card-back">
-                <img src="anim 3.ng" alt="College History">
-            </div>
+                <!-- Back image (decorative preview of the slide after next) -->
+                <div class="history-card history-card-back">
+                    <img src="anim%203.png" alt="" loading="lazy">
+                </div>
 
-            <!-- Middle image -->
-            <div class="history-card history-card-middle">
-                <img src="anim 2.png" alt="College Campus">
-            </div>
+                <!-- Middle image (decorative preview of the next slide) -->
+                <div class="history-card history-card-middle">
+                    <img src="anim%202.png" alt="" loading="lazy">
+                </div>
 
-            <!-- Main image -->
-            <div class="history-main-image">
-                <img
-                    id="historySliderImage"
-                    src="anim 1.png"
-                    alt="Bangladesh Air Force Shaheen College Chattogram"
-                >
-
-                <div class="image-overlay"></div>
-            </div>
-
-            <!-- Slider dots -->
-            <div class="history-dots">
-
-                <button class="history-dot active"
-                        data-image="anim 1.png">
-                </button>
-
-                <button class="history-dot"
-                        data-image="anim 2.png">
-                </button>
-
-                <button class="history-dot"
-                        data-image="anim 3.png">
-                </button>
+                <!-- Main image -->
+                <div class="history-main-image">
+                    <img id="historySliderImage"
+                         src="anim%201.png"
+                         alt="Bangladesh Air Force Shaheen College Chattogram, photo 1 of 3"
+                         loading="lazy">
+                    <div class="image-overlay"></div>
+                </div>
 
             </div>
 
-            <!-- Auto cycle -->
-            <div class="auto-cycle">
-                <span class="pulse-dot"></span>
-                AUTO CYCLE ACTIVE
+            <div class="history-controls">
+
+                <div class="history-dots">
+                    <button type="button" class="history-dot active"
+                            data-image="anim%201.png"
+                            aria-label="Show photo 1 of 3"
+                            aria-current="true"></button>
+
+                    <button type="button" class="history-dot"
+                            data-image="anim%202.png"
+                            aria-label="Show photo 2 of 3"></button>
+
+                    <button type="button" class="history-dot"
+                            data-image="anim%203.png"
+                            aria-label="Show photo 3 of 3"></button>
+                </div>
+
+                <div class="auto-cycle" id="autoCycle">
+                    <span class="auto-cycle-status" role="status">
+                        <span class="pulse-dot" aria-hidden="true"></span>
+                        <span id="autoCycleText">Auto cycle active</span>
+                    </span>
+                    <button type="button" class="history-toggle" id="historyToggle">
+                        Pause
+                    </button>
+                </div>
+
             </div>
 
         </div>
@@ -410,124 +392,53 @@
 
 </section>
 
-<script class="history">
-
-const historyImages = [
-    "anim 1.png",
-    "anim 2.png",
-    "anim 3.png"
-];
-
-const historyImage =
-    document.getElementById("historySliderImage");
-
-const historyDots =
-    document.querySelectorAll(".history-dot");
-
-let currentHistoryImage = 0;
-
-
-/* Change image */
-
-function changeHistoryImage(index) {
-
-    historyImage.classList.add("changing");
-
-    setTimeout(() => {
-
-        historyImage.src =
-            historyImages[index];
-
-        historyImage.classList.remove("changing");
-
-    }, 450);
-
-
-    historyDots.forEach(dot => {
-        dot.classList.remove("active");
-    });
-
-    historyDots[index].classList.add("active");
-
-    currentHistoryImage = index;
-}
-
-
-/* Auto change every 4 seconds */
-
-setInterval(() => {
-
-    currentHistoryImage++;
-
-    if (currentHistoryImage >= historyImages.length) {
-        currentHistoryImage = 0;
-    }
-
-    changeHistoryImage(currentHistoryImage);
-
-}, 4000);
-
-
-/* Manual dots */
-
-historyDots.forEach((dot, index) => {
-
-    dot.addEventListener("click", () => {
-
-        changeHistoryImage(index);
-
-    });
-
-});
-
-</script>
-
-
 
 <!-- ================= QUICK LINKS ================= -->
 
-<section class="quick-section">
+<section class="quick-section" aria-label="Quick links">
 
     <div class="container quick-links">
 
         <a href="#" class="quick-item">
-            <i class="fa-solid fa-graduation-cap"></i>
+            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
             <span>Academics</span>
         </a>
 
-        <a href="https://vortibd.com/institute/1262/435" class="quick-item">
-            <i class="fa-solid fa-file-lines"></i>
+        <a href="#" class="quick-item">
+            <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
             <span>Admissions</span>
         </a>
 
-        <a href="https://www.bafsc.edu.bd/college-teacher"  class="quick-item">
-            <i class="fa-solid fa-users"></i>
-            <span>Teacher & Staff</span>
+        <a href="#" class="quick-item">
+            <i class="fa-solid fa-users" aria-hidden="true"></i>
+            <span>Teacher &amp; Staff</span>
         </a>
 
         <a href="#" class="quick-item">
-            <i class="fa-solid fa-chart-column"></i>
+            <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
             <span>Results</span>
         </a>
 
         <a href="#" class="quick-item">
-            <i class="fa-regular fa-calendar"></i>
+            <i class="fa-regular fa-calendar" aria-hidden="true"></i>
             <span>Routine</span>
         </a>
 
-        <a href="https://www.bafsc.edu.bd/photo-gallery" target="_blank" class="quick-item">
-            <i class="fa-regular fa-image"></i>
+        <a href="#" class="quick-item">
+            <i class="fa-regular fa-image" aria-hidden="true"></i>
             <span>Gallery</span>
         </a>
 
         <a href="#" class="quick-item">
-            <i class="fa-solid fa-phone"></i>
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
             <span>Contact Us</span>
         </a>
 
     </div>
 
 </section>
+
+</main>
 
 
 <!-- ================= FOOTER ================= -->
@@ -536,20 +447,15 @@ historyDots.forEach((dot, index) => {
 
     <div class="container footer-grid">
 
-
         <!-- College Info -->
-
         <div class="footer-brand">
 
             <div class="footer-logo">
-
-                <i class="fa-solid fa-building-columns"></i>
-
+                <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
                 <div>
-                    <strong>COLLEGE</strong>
+                    <strong>BAF Shaheen College Chattogram</strong>
                     <span>Learn. Grow. Succeed.</span>
                 </div>
-
             </div>
 
             <p>
@@ -558,98 +464,67 @@ historyDots.forEach((dot, index) => {
             </p>
 
             <div class="social-icons">
-
-                <a href="#">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-
-                <a href="#">
-                    <i class="fa-brands fa-twitter"></i>
-                </a>
-
-                <a href="#">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-
-                <a href="#">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
-
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
             </div>
 
         </div>
 
 
         <!-- Quick Links -->
-
         <div class="footer-column">
-
             <h4>Quick Links</h4>
-
             <a href="#">About Us</a>
             <a href="#">Courses</a>
             <a href="#">Admissions</a>
             <a href="#">Contact</a>
-
         </div>
 
 
         <!-- Campus -->
-
         <div class="footer-column">
-
             <h4>Campus</h4>
-
             <a href="#">Facilities</a>
             <a href="#">Library</a>
             <a href="#">Events</a>
             <a href="#">Hostel</a>
-
         </div>
 
 
         <!-- Resources -->
-
         <div class="footer-column">
-
             <h4>Resources</h4>
-
             <a href="#">Student Portal</a>
             <a href="#">Alumni</a>
             <a href="#">FAQs</a>
             <a href="#">Careers</a>
-
         </div>
 
 
         <!-- Contact -->
-
         <div class="footer-column contact-column">
-
             <h4>Contact Us</h4>
 
             <p>
-                <i class="fa-solid fa-location-dot"></i>
-                123 College Street,
-                <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;Your City, 12345
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                <span>123 College Street, Your City, 12345</span>
             </p>
 
             <p>
-                <i class="fa-solid fa-envelope"></i>
-                info@college.edu
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                <span>info@college.edu</span>
             </p>
 
             <p>
-                <i class="fa-solid fa-phone"></i>
-                +123 456 7890
+                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                <span>+123 456 7890</span>
             </p>
-
         </div>
 
 
         <!-- Newsletter -->
-
         <div class="newsletter">
 
             <h4>Stay Updated</h4>
@@ -659,17 +534,21 @@ historyDots.forEach((dot, index) => {
                 delivered to your inbox.
             </p>
 
-            <form>
+            <form id="newsletterForm" novalidate>
 
-                <input
-                    type="email"
-                    placeholder="Enter your email">
+                <label for="newsletterEmail" class="sr-only">Email address</label>
+                <input id="newsletterEmail"
+                       name="email"
+                       type="email"
+                       placeholder="Enter your email"
+                       autocomplete="email"
+                       required>
 
-                <button type="submit">
-                    Subscribe
-                </button>
+                <button type="submit">Subscribe</button>
 
             </form>
+
+            <p class="form-message" id="newsletterMessage" role="status" aria-live="polite"></p>
 
         </div>
 
@@ -677,19 +556,18 @@ historyDots.forEach((dot, index) => {
 
 
     <!-- Copyright -->
-
     <div class="copyright">
 
         <div class="container copyright-inner">
 
             <span>
-                © 2024 College Name. All Rights Reserved.
+                © 2024 BAF Shaheen College Chattogram. All Rights Reserved.
             </span>
 
             <div>
                 <a href="#">Privacy Policy</a>
-                <span>|</span>
-                <a href="#">Terms & Conditions</a>
+                <span aria-hidden="true">|</span>
+                <a href="#">Terms &amp; Conditions</a>
             </div>
 
         </div>
@@ -697,18 +575,6 @@ historyDots.forEach((dot, index) => {
     </div>
 
 </footer>
-
-
-<script>
-    const mobileMenu = document.querySelector(".mobile-menu");
-    const navMenu = document.querySelector(".nav-menu");
-
-    mobileMenu.addEventListener("click", () => {
-        navMenu.classList.toggle("show");
-    });
-</script>
-
-
 
 </body>
 </html>
